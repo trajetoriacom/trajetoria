@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trajetória FC | Adivinhe o jogador</title>
+  <meta name="description" content="Adivinhe o jogador de futebol apenas pela trajetória dos clubes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="." aria-label="Trajetória FC início">
+        <span class="brand-mark">TF</span>
+        <span>TRAJETÓRIA <em>FC</em></span>
+      </a>
+      <div class="topbar-actions">
+        <span class="player-label">JOGADOR <strong id="player-display">CONVIDADO</strong></span>
+        <span class="top-divider" aria-hidden="true"></span>
+        <span class="round-label">RODADA <strong id="round-number">01</strong></span>
+        <span class="top-divider" aria-hidden="true"></span>
+        <span class="score-label">PONTOS <strong id="score">000</strong></span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-intro">
+        <div>
+          <p class="eyebrow"><span></span> DESAFIO DIÁRIO</p>
+          <h1>Quem é o<br /><i>jogador?</i></h1>
+        </div>
+        <p class="intro-copy">Reconstrua a carreira.<br />Confie na sua memória.</p>
+      </section>
+
+      <section class="game-layout" aria-live="polite">
+        <div class="game-card">
+          <div class="card-heading">
+            <div>
+              <p class="section-kicker">A trajetória revela tudo</p>
+              <h2>Por quais clubes ele passou?</h2>
+            </div>
+            <div class="difficulty"><span class="difficulty-dot"></span> MÉDIO</div>
+          </div>
+
+          <div class="clubs-list" id="clubs-list"></div>
+
+          <div class="clue-row">
+            <span class="clue-icon">✦</span>
+            <span id="clue-text">Uma dica custa 50 pontos</span>
+            <div class="action-buttons">
+              <button class="skip-button" id="skip-button" type="button">PULAR (-75)</button>
+              <button class="clue-button" id="clue-button" type="button">REVELAR DICA <span>→</span></button>
+            </div>
+          </div>
+
+          <form class="guess-form" id="guess-form">
+            <label for="guess-input">SUA RESPOSTA</label>
+            <div class="input-wrap">
+              <input id="guess-input" type="text" autocomplete="off" placeholder="Digite o nome do jogador" aria-describedby="feedback" aria-autocomplete="list" aria-expanded="false" />
+              <button type="submit" aria-label="Confirmar resposta">CONFIRMAR <span>↗</span></button>
+            </div>
+            <ul class="suggestions" id="suggestions" aria-live="polite"></ul>
+          </form>
+          <p class="feedback" id="feedback" role="status"></p>
+        </div>
+
+        <aside class="side-panel">
+          <div class="streak-box">
+            <div class="streak-header"><span>SEQUÊNCIA ATUAL</span><span class="flame">◒</span></div>
+            <div class="streak-value"><strong id="streak">03</strong><span>rodadas</span></div>
+            <div class="streak-bar"><span></span></div>
+            <p>Acerto após acerto.<br /><b>Não deixe a sequência cair.</b></p>
+          </div>
+          <div class="how-to">
+            <p class="section-kicker">Como jogar</p>
+            <div class="rule"><span>01</span><p>Observe os clubes na ordem da carreira.</p></div>
+            <div class="rule"><span>02</span><p>Digite o nome e confirme seu palpite.</p></div>
+            <div class="rule"><span>03</span><p>Quanto menos pistas, mais pontos.</p></div>
+          </div>
+          <div class="ranking-box">
+            <div class="ranking-heading">
+              <div>
+                <p class="section-kicker">Ranking local</p>
+                <h3>Disputa da rodada</h3>
+              </div>
+              <span class="ranking-icon">#</span>
+            </div>
+            <form class="player-form" id="player-form">
+              <label for="player-name">SEU NOME</label>
+              <div class="player-input-wrap">
+                <input id="player-name" type="text" maxlength="18" placeholder="Digite seu nome" autocomplete="nickname" required />
+                <button type="submit" aria-label="Salvar nome">OK</button>
+              </div>
+            </form>
+            <ol class="ranking-list" id="ranking-list"></ol>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="footer"><span>© 2024 TRAJETÓRIA FC</span><span>Feito por <a href="https://instagram.com/luisg78_" target="_blank" rel="noopener noreferrer">@luisg78_</a></span></footer>
+  </div>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+  <script src="app.js"></script>
+</body>
+</html>
